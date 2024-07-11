@@ -1,0 +1,41 @@
+---
+title: "Untitled"
+output: html_document
+date: "2024-07-11"
+---
+
+```{r}
+ggplot(top_products, aes(x = reorder(product_name, total_quantity), y = total_quantity)) +
+  geom_bar(stat = "identity", fill = "dodgerblue") +
+  coord_flip() +
+  labs(title = "Top 10 Selling Products", x = "Product Name", y = "Total Quantity Sold") +
+  theme_minimal()
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+ggplot(payment_methods, aes(x = "", y = count, fill = payment_method)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  labs(title = "Payment Method Distribution", x = "", y = "") +
+  theme_minimal()
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+ggplot(sales_by_customer, aes(x = reorder(customer_name, total_sales), y = total_sales)) +
+  geom_bar(stat = "identity", fill = "coral") +
+  coord_flip() +
+  labs(title = "Top 10 Customers by Sales", x = "Customer Name", y = "Total Sales") +
+  theme_minimal()
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
